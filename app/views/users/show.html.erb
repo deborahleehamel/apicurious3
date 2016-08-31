@@ -1,0 +1,15 @@
+<div class="container transparent">
+  <div class="row">
+    <div class="col-xs-6 col-md-4">
+      <p></p>
+      <% if current_user %>
+      <img src="<%= current_user.avatar %>"  height="200px">
+      <h1><%= current_user.name %></h1>
+      <h3><%= current_user.username %></h3>
+      <p>Joined on Aug 5, 2015</p>
+
+
+      <% end %>
+    </div>
+  </div>
+</div>
