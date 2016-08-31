@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Apicurious3</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Gitastic</title>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= render partial: 'shared/navbar' %>
+<%= yield %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $('#tabs').tab();
+    });
+</script>
+</div> <!-- container -->
 
-  <body>
-    <%= yield %>
-  </body>
+
+<script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script>
+</body>
 </html>

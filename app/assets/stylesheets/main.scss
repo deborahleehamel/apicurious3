@@ -1,0 +1,22 @@
+body {
+  background-image: image-url("gitastic_home.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.main_box {
+  width: 1000px;
+  height: 1000px;
+  border: 1px solid white;
+  box-sizing: border-box;
+}
+
+.logo {
+  max-width: 60px;
+  padding-left: 5px;
+}
+
+
+.transparent {
+  background:rgba(255,255,255,0.5);
+}
