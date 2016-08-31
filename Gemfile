@@ -13,8 +13,6 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # gem 'omniauth-github'
 gem 'faraday'
 
-
-
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
@@ -25,13 +23,12 @@ group :development, :test do
 end
 
 group :development do
-  gem 'capybara'
-end
-
-group :test do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
 end
 
+group :test do
+  gem 'capybara'
+end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

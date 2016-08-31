@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "user can login with github" do
   scenario "log in" do
-    # stub_omniauth
+    stub_omniauth
     visit "/"
     expect(page.status_code).to eq 200
 
