@@ -9,27 +9,30 @@ class SessionsController < ApplicationController
         faraday.adapter  Faraday.default_adapter
       end
 
-    response = connection.post '/login/oauth/access_token', { :code => params[:code], client_id: "95da052db24b0ebbcf72", client_secret: "1e6bd76da887f691a0316233191c77ce7f62b0cc" } # POST "name=maguro" to http://sushi.com/nigiri
-    #this gets us the access token for the client app
+    response = connection.post '/login/oauth/access_token', { :code => params[:code],
+                                                     client_id: "2bbfad8f7128c8c22cbf",
+                                                     client_secret: "9e67b17fa3475dc693c73711da86caa5dbe342e6" }
 
     access_token = parse_access_token(response.body)
 
     new_connection = Faraday.new(:url => 'https://api.github.com') do |faraday|
-      faraday.request  :url_encoded             # form-encode POST params
-      faraday.response :logger                  # log requests to STDOUT
-      faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+      faraday.request  :url_encoded
+      faraday.response :logger
+      faraday.adapter  Faraday.default_adapter
     end
-    require "pry"; binding.pry
-    auth = new_connection.get '/user', { :access_token => access_token }
 
-    # if user = User.from_omniauth(auth, token)
-    #   session[:user_id] = user.id
-    #   redirect_to user_path(user.username)
-    # else
-    # redirect_to root_path
-    # end
+    response = new_connection.get '/user', { :access_token => access_token }
+    auth = JSON.parse(response.body)
+
+    if user = User.from_omniauth(auth, access_token)
+      session[:user_id] = user.id
+      redirect_to user_path(user.username)
+    else
+    redirect_to root_path
+    end
+
   end
-  end
+end
 
   def destroy
     session.clear
