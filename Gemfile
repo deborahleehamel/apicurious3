@@ -20,6 +20,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'pry'
   gem 'launchy'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :development do
@@ -29,6 +30,8 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
