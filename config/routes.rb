@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get "/:username", to: 'users#show', as: :user
   delete "/logout", to: 'sessions#destroy', as: :logout
 
-  resources :users, only: [:show]end
+  resources :users, only: [:show]
+end

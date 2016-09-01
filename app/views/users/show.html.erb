@@ -22,16 +22,6 @@
           <p>following</p>
         </div>
       </div>
-      <!-- <div class="row">
-        <div class="col-md-3">
-          <h3>Organizations</h3>
-          <%#= @service.orgs.count %>
-          <%# @orgs.each do |org| %>
-          <%#=org.login%>
-          <%# end %>
-        </div>
-      </div> -->
-
       <% end %>
     </div>
 
@@ -40,7 +30,6 @@
       <div id="content">
     <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
         <li class="active"><a href="#repos" data-toggle="tab">My Repositories</a></li>
-        <li><a href="#myactivity" data-toggle="tab">My Activity</a></li>
         <li><a href="#followers" data-toggle="tab">Followers</a></li>
         <li><a href="#following" data-toggle="tab">Following</a></li>
     </ul>
@@ -54,19 +43,10 @@
               <% end %>
             </ul>
             </p>
-        </div>
-        <div class="tab-pane" id="myactivity">
-            <h1>My Activity</h1>
-            <p>
-              <!-- <ul>
-              <%# @commits.map do |commit| %>
-              <li><%#= commits.name %></li>
-              <%# end %>
-            </ul> -->
-            </p>
+            <p></p>
         </div>
         <div class="tab-pane" id="followers">
-            <h1>People I Follow</h1>
+            <h1>People Following Me</h1>
             <p>
               <% @followers.each do |follower| %>
                 <div class="col-md-3">
@@ -75,6 +55,7 @@
               </div>
               <% end %>
             </p>
+            <p></p>
         </div>
         <div class="tab-pane" id="following">
             <h1>People I Follow</h1>
@@ -87,8 +68,8 @@
               <% end %>
             </p>
         </div>
+      </div>
     </div>
-</div>
 
     </div>
   </div>
