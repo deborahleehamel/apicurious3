@@ -7,13 +7,12 @@
   </div>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="pull-right nav navbar-nav">
-      <!-- <a href="https://github.com/login/oauth/authorize?client_id=95da052db24b0ebbcf72">Login</a> -->
-      <!-- <%# if current_user %>
-      <li class="navbar-brand">Welcome <%#= current_user.name %>.</li>
-      <li class="navbar-brand"><%#= link_to "Logout", logout_path, method: :delete %></li>
-      <%# else %>
-      <li class="navbar-brand"><%#= link_to "Sign in with Github", github_login_path %></li>
-      <%# end %> -->
+      <% if current_user %>
+      <li class="navbar-brand">Welcome <%= current_user.name %>.</li>
+      <li class="navbar-brand"><%= link_to "Logout", logout_path, method: :delete %></li>
+      <% else %>
+      <li class="navbar-brand">  <a href="https://github.com/login/oauth/authorize?client_id=2bbfad8f7128c8c22cbf&scope=user:email">Sign in with Github</a></li>
+      <% end %>
     </ul>
 
 

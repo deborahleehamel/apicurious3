@@ -8,8 +8,75 @@
       <h3><%= current_user.username %></h3>
       <p>Joined on Aug 5, 2015</p>
 
+      <div class="row">
+        <div class="col-md-3">
+          <h3> <%= @service.followers.count %> </h3>
+          <p>followers</p>
+        </div>
+        <div class="col-md-3">
+          <h3> <%= @service.starred.count %> </h3>
+          <p>starred</p>
+        </div>
+        <div class="col-md-3">
+          <h3> <%= @service.following.count %> </h3>
+          <p>following</p>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-md-3">
+          <h3>Organizations</h3>
+          <%#= @service.orgs.count %>
+          <%# @orgs.each do |org| %>
+          <%#=org.login%>
+          <%# end %>
+        </div>
+      </div> -->
 
       <% end %>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-8">
+      <p></p>
+      <div id="content">
+    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"><a href="#repos" data-toggle="tab">My Repositories</a></li>
+        <li><a href="#myactivity" data-toggle="tab">My Activity</a></li>
+        <li><a href="#follow" data-toggle="tab">Following</a></li>
+        <li><a href="#otheractivity" data-toggle="tab">Their Activity</a></li>
+    </ul>
+    <div id="my-tab-content" class="tab-content">
+        <div class="tab-pane active" id="repos">
+            <h1>My Repositories</h1>
+            <p font>
+              <ul>
+              <% @repos.map do |repo| %>
+              <li><%= link_to repo.name, repo.html_url %></li>
+              <% end %>
+            </ul>
+            </p>
+        </div>
+        <div class="tab-pane" id="myactivity">
+            <h1>My Activity</h1>
+            <p>pushes/commits</p>
+        </div>
+        <div class="tab-pane" id="follow">
+            <h1>People I Follow</h1>
+            <p>
+              <% @followers.each do |follower| %>
+                <div class="col-md-3">
+              <h4><%= link_to follower.login, follower.html_url %></h4>
+                <img src="<%= follower.avatar_url %>" height="50px">
+              </div>
+              <% end %>
+            </p>
+        </div>
+        <div class="tab-pane" id="otheractivity">
+            <h1>Activity of People I Follow</h1>
+            <p>pushes/commits</p>
+        </div>
+    </div>
+</div>
+
     </div>
   </div>
 </div>
