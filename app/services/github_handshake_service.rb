@@ -17,7 +17,7 @@ class GithubHandshakeService
     new_connection = request_connection("https://api.github.com")
 
     response = new_connection.get '/user', { :access_token => access_token }
-    auth = JSON.parse(response.body)
+    auth = JSON.parse(response.body).merge("token" => access_token)
   end
 
   private

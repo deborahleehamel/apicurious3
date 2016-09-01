@@ -41,13 +41,13 @@
     <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
         <li class="active"><a href="#repos" data-toggle="tab">My Repositories</a></li>
         <li><a href="#myactivity" data-toggle="tab">My Activity</a></li>
-        <li><a href="#follow" data-toggle="tab">Following</a></li>
-        <li><a href="#otheractivity" data-toggle="tab">Their Activity</a></li>
+        <li><a href="#followers" data-toggle="tab">Followers</a></li>
+        <li><a href="#following" data-toggle="tab">Following</a></li>
     </ul>
     <div id="my-tab-content" class="tab-content">
         <div class="tab-pane active" id="repos">
             <h1>My Repositories</h1>
-            <p font>
+            <p>
               <ul>
               <% @repos.map do |repo| %>
               <li><%= link_to repo.name, repo.html_url %></li>
@@ -57,9 +57,15 @@
         </div>
         <div class="tab-pane" id="myactivity">
             <h1>My Activity</h1>
-            <p>pushes/commits</p>
+            <p>
+              <!-- <ul>
+              <%# @commits.map do |commit| %>
+              <li><%#= commits.name %></li>
+              <%# end %>
+            </ul> -->
+            </p>
         </div>
-        <div class="tab-pane" id="follow">
+        <div class="tab-pane" id="followers">
             <h1>People I Follow</h1>
             <p>
               <% @followers.each do |follower| %>
@@ -70,9 +76,16 @@
               <% end %>
             </p>
         </div>
-        <div class="tab-pane" id="otheractivity">
-            <h1>Activity of People I Follow</h1>
-            <p>pushes/commits</p>
+        <div class="tab-pane" id="following">
+            <h1>People I Follow</h1>
+            <p>
+              <% @following.each do |following| %>
+                <div class="col-md-3">
+              <h4><%= link_to following.login, following.html_url %></h4>
+                <img src="<%= following.avatar_url %>" height="50px">
+              </div>
+              <% end %>
+            </p>
         </div>
     </div>
 </div>
